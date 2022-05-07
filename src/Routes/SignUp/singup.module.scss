@@ -1,0 +1,15 @@
+@import "../../styles/colors.scss";
+.contentSection { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1184px;
+    padding: 0px 20px;
+    margin: 0 auto;
+    gap: 30px;
+    img {
+        height: 40vh;
+    }
+
+
+}

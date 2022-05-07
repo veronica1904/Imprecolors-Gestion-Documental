@@ -1,0 +1,11 @@
+{
+    "primary": "#4A5CA6",
+    "secondary": "#F94D51",
+    "backgroundLight": "#F2F2F2",
+    "textgray": "#B9B4BF",
+    "grayBackground": "#B9B4BF",
+    "textDark": "#0D0D0D",
+    "backgroundDark": "#0D0D0D",
+    "white": "#F2F2F2",
+    "error": "#F26444"
+}

@@ -1,0 +1,30 @@
+@import "./styles/colors.scss";
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Josefin Sans'), url('./assets/fonts/JosefinSans/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Josefin Sans Bold';
+  font-style: bold;
+  font-weight: bold;
+  src: local('Josefin Sans Bold'), url('./assets/fonts/JosefinSans/JosefinSans-Bold.ttf');
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Segoe   UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+    font-weight: 700;
+}

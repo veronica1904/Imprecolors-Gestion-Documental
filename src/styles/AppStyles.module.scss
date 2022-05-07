@@ -1,0 +1,18 @@
+@import "./colors.scss";
+
+.root {
+  background-color: $white;
+  min-height: calc(100vh - 80px);
+  color: $textDark;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.root::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  text-align: center;
+}
