@@ -1,0 +1,10 @@
+$drawerWidth: 240px;
+$widthMiniMenu: 65px;
+$maxWidthContent: 1184px;
+$widthLoged: calc(100% - $drawerWidth);
+$minWidthModal: 350px;
+
+:export {
+    drawerWidth: $drawerWidth;
+    widthMiniMenu: $widthMiniMenu;
+}

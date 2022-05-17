@@ -17,7 +17,10 @@ const theme = createTheme({
         }
     },
     typography: {
-        fontFamily: "Josefin Sans"
+        fontFamily: "Josefin Sans",
+        button: {
+            textTransform: 'none'
+        }
     },
     components: {
         MuiAppBar: {

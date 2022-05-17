@@ -4,20 +4,15 @@ import { Button, Grid } from '@mui/material';
 import TextFieldForm from '../../../components/FormComponents/TextFieldForm'
 import styles from "../formLogin.module.scss";
 import CustomCard from '../../../components/global/CustomCard';
-import SelectForm from '../../../components/FormComponents/SelectForm'
+import { actionLoginUser } from '../../../Redux/actions/user'
+import { useDispatch } from 'react-redux';
 
 function FormLogin() {
     const { handleSubmit, control, formState: { errors }, reset } = useForm();
-
-    const options = [
-        { value: "option1", label: "Administrador" },
-        { value: "option2", label: "Vendedor" },
-        { value: "option3", label: "Srvicio Tecnico" },
-
-    ]
+    const dispatch = useDispatch();
 
     const onSubmit = (data) => {
-        console.log(data)
+        dispatch(actionLoginUser(data))
 
     }
     return (
@@ -26,14 +21,7 @@ function FormLogin() {
                 <h1>Iniciar sesión</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={12}>
-                            <SelectForm
-                                label="Categoria"
-                                name="category"
-                                control={control}
-                                options={options}
-                            />
-                        </Grid>
+                      
                         <Grid item xs={12} md={12}>
                             <TextFieldForm
                                 control={control}

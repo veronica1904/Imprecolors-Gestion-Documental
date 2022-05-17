@@ -1,11 +1,11 @@
 import React from 'react'
-import Contact from './components/Contact'
+import HomeLogin from './components/HomeLogin'
 
 
 function Home() {
   return (
     <div>
-        <Contact />
+        <HomeLogin />
     </div>
   )
 }

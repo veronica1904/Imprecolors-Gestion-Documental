@@ -1,5 +1,6 @@
 @import "../../styles/colors.scss";
-.contentSection { 
+
+.formLogin{ 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,9 +8,9 @@
     padding: 0px 20px;
     margin: 0 auto;
     gap: 30px;
-    img {
-        height: 40vh;
-    }
-
-
 }
+
+.textLogin{
+    text-align: center;
+}
+

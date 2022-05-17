@@ -12,6 +12,24 @@
         height: 40vh;
     }
 }
+.containerHome{
+    background: url("../../assets/images/fondo/fondo.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    align-items: center;
+    // flex: 1;
+    // width: 100%;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $backgroundLight;
+    display: flex;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    justify-content: center;
+    line-height: 0px;
+}
 
 @media (max-width: 1023.98px) {
     .contentSection {
