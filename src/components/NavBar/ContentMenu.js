@@ -28,7 +28,7 @@ function ContentMenu({ open }) {
             {
                 text: "Productos",
                 icon: <ProductionQuantityLimits/>,
-                link: "/productos",
+                link: "/products",
                 options: [
                     {
                         text: "Crear Productos",

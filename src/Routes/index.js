@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import Dashboard from './Dashboard/index';
 import { isAuth } from '../Redux/selectors/user';
 import RegisterUser from './registerClient/RegisterUser';
+import ProductsTable from './Products/ProductsTable';
 
 
 function Routes() {
@@ -18,6 +19,10 @@ function Routes() {
         <Route path="users" >
           <Route index element={<Dashboard />} />
           <Route path='createUser' element={<RegisterUser />} />
+        </Route>
+        <Route path="products" >
+          <Route index element={<ProductsTable />} />
+          {/* <Route path='createProduct' element={<RegisterProducts />} /> */}
         </Route>
     </Routing>
   )
