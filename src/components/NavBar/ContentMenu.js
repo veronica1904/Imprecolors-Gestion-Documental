@@ -10,7 +10,8 @@ import {  DescriptionRounded, Equalizer,  Loyalty, PersonSearch, ProductionQuant
 function ContentMenu({ open }) {
     const location = useLocation();
     const [openSubList, setOpenSubList] = useState(null)
-    const type_user = useSelector(getTypeUser)
+    const type_user = 'admin'
+    // const type_user = useSelector(getTypeUser)
     const currentPath = location.pathname.split("/")[1];
     const menuTypeUsers = {
         "admin": [
@@ -53,8 +54,12 @@ function ContentMenu({ open }) {
                 link: "/provider",
                 options: [
                     {
-                        text: "Crear Provedores",
-                        link: "/createProvider"
+                        text: "Provedor de campo",
+                        link: "/createProvider",
+                    },
+                    {
+                        text: "Provedor empresa",
+                        link: "/createBusniess"
                     }
                 ]
             },
