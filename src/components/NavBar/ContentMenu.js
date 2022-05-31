@@ -82,10 +82,10 @@ function ContentMenu({ open }) {
                 <>
                     <ListItemButton
                         key={index}
-                        // className={link === currentPath ? styles.active : styles.menuItem}
-                        className={clsx(styles.menuItem, {
-                            [styles.menuActive]: link === `/${currentPath}`
-                        })}
+                        // // className={link === currentPath ? styles.active : styles.menuItem}
+                        // className={clsx(styles.menuItem, {
+                        //     [styles.menuActive]: link === `/${currentPath}`
+                        // })}
                         component={Link}
                         to={link}
                         onClick={() => { if (options.length) handleOpenSubList(index) }}

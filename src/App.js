@@ -15,9 +15,7 @@ import { getStateMenu } from './Redux/selectors/app';
 
 
 function App() {
-const auth = true
-
-  // const auth = useSelector(isAuth);
+  const auth = useSelector(isAuth);
   const token = useSelector(getToken);
   const isOpenMenu = useSelector(getStateMenu);
 

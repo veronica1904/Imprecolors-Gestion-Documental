@@ -15,8 +15,8 @@ import ContentMenu from './ContentMenu';
 export default function NavBar() {
   const dispatch = useDispatch()
   const open = useSelector(getStateMenu)
-  const auth = true
-  // const auth = useSelector(isAuth)
+  // const auth = true
+  const auth = useSelector(isAuth)
   const handleChangeMenuLeft = () => {
     dispatch(changeMenu())
   };

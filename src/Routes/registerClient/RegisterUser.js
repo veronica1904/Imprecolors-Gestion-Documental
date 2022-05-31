@@ -22,6 +22,11 @@ function RegisterUser() {
     { label: "CE", value: "type_identity" },
 ];
 
+const rolUser = [
+  { label: "cliente", value: "Client" },
+  { label: "operario", value: "Operario" },
+];
+
   const onSubmit = (data) => {
     dispatch(actionLoginUser(data));
   };
@@ -76,22 +81,32 @@ function RegisterUser() {
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
-              <TextFieldForm
-                control={control}
-                name="role"
-                label="rol del usurio"
-                id="phone"
-                required
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={6} md={6}>
               <SelectForm
                 options={typeDocument}
                 control={control}
                 name="identity"
-                label="Tipo de Factura"
+                label="Tipo de Documento"
                 id="identity"
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <TextFieldForm
+                control={control}
+                name="documentNumber"
+                label="Número de documento"
+                id="documentNumber"
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={6}>
+            <SelectForm
+                options={rolUser}
+                control={control}
+                name="role"
+                label="Rol del usuario"
+                id="role"
                 required
               />
             </Grid>
