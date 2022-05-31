@@ -9,6 +9,7 @@ import RegisterUser from './registerClient/RegisterUser';
 import Provider from './Provider/FormProvider'
 import  Business  from './Provider/FormBusniess';
 import ProductsTable from './Products/ProductsTable';
+import RegisterProducts from './Products/RegisterProducts';
 
 function Routes() {
   const auth = useSelector(isAuth)
@@ -28,7 +29,7 @@ function Routes() {
         </Route>
         <Route path="products" >
           <Route index element={<ProductsTable />} />
-          {/* <Route path='createProduct' element={<RegisterProducts />} /> */}
+          <Route path='createProduct' element={<RegisterProducts />} />
         </Route>
     </Routing>
   )
