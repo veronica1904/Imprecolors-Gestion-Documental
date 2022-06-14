@@ -5,11 +5,11 @@ import { Button, Grid } from "@mui/material";
 import TextFieldForm from "../../components/FormComponents/TextFieldForm";
 import SelectForm from "../../components/FormComponents/SelectForm";
 import CustomCard from "../../components/global/CustomCard";
-import styles from "./product.module.scss"
+import styles from "./bill.module.scss"
 import { useDispatch } from "react-redux";
 
 
-function RegisterProducts() {
+function FormBill() {
   const {
     handleSubmit,
     control,
@@ -22,10 +22,10 @@ function RegisterProducts() {
     dispatch((data));
   };
   return (
-     <div className={styles.formProduct}>
+     <div className={styles.formBill}>
     <div>
       <CustomCard>
-        <h1>Registrar empresa provedora</h1>
+        <h1>Soy factura</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
             <Grid item xs={6} md={12}>
@@ -96,4 +96,4 @@ function RegisterProducts() {
   );
 }
 
-export default RegisterProducts
+export default FormBill

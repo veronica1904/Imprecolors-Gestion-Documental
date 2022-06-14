@@ -21,7 +21,7 @@ function FormProvider() {
         dispatch((data));
       };
       return (
-        <div className={styles.formLogin}>
+        <div className={styles.formProvider}>
           <CustomCard>
             <h1>Registrar provedor de campo</h1>
             <form onSubmit={handleSubmit(onSubmit)}>

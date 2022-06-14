@@ -5,7 +5,7 @@ import { getTypeUser } from '../../Redux/selectors/user';
 import styles from "./navbar.module.scss";
 import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
-import {  DescriptionRounded, Equalizer,  Loyalty, PersonSearch, ProductionQuantityLimits, Public } from '@mui/icons-material';
+import {  DescriptionRounded, Equalizer,  Loyalty, Inventory, ShoppingCart, PersonSearch, MiscellaneousServices, ProductionQuantityLimits, Public } from '@mui/icons-material';
 
 function ContentMenu({ open }) {
     const location = useLocation();
@@ -64,10 +64,27 @@ function ContentMenu({ open }) {
                 ]
             },
             {
-                text: "Estadisticas",
-                icon: <Equalizer />,
-                link: "/statistics"
+                text: "Compras",
+                icon: <ShoppingCart />,
+                link: "/shopping",
+                options: [
+                    {
+                        text: "Compras",
+                        link: "/shopping"
+                    }
+                ]
             },
+            {
+                text: "Servicio tècnico",
+                icon: <MiscellaneousServices />,
+                link: "/technicalService",
+                options: [
+                    {
+                        text: "Servicio tècnico",
+                        link: "/technicalService"
+                    }
+                ]
+            },   
         ]
 
     }

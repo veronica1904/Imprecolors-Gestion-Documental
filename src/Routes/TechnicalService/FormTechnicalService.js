@@ -3,12 +3,11 @@ import { useForm } from "react-hook-form";
 import { Button, Grid } from "@mui/material";
 import TextFieldForm from "../../components/FormComponents/TextFieldForm";
 import SelectForm from "../../components/FormComponents/SelectForm";
-import styles from "./provider.module.scss";
 import CustomCard from "../../components/global/CustomCard";
 import { useDispatch } from "react-redux";
 
 
-function FormBusniess() {
+function  FormTechnicalService () {
     const {
         handleSubmit,
         control,
@@ -21,7 +20,8 @@ function FormBusniess() {
         dispatch((data));
       };
       return (
-        <div className={styles.formProvider}>
+        // <div className={styles.formLogin}>
+        <div>
           <CustomCard>
             <h1>Registrar empresa provedora</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -30,7 +30,7 @@ function FormBusniess() {
                   <TextFieldForm
                     control={control}
                     name="url"
-                    label="URL o enlace pagina de la empresa"
+                    label="datos"
                     id="url"
                     required
                   />
@@ -72,7 +72,7 @@ function FormBusniess() {
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                <TextFieldForm
+                  <SelectForm
                     control={control}
                     name="nit"
                     label="N.I.T'"
@@ -92,4 +92,4 @@ function FormBusniess() {
         </div>
       );
     }
-export default FormBusniess
+export default FormTechnicalService

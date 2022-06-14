@@ -1,0 +1,26 @@
+@import "../../styles/colors.scss";
+
+.formShopping{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1184px;
+    padding: 80px 150px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.textShopping{
+    text-align: center;
+}
+
+
+.shoppingTables{
+    padding: 70px 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1184px;
+    margin: 0 auto;
+    gap: 30px;
+}

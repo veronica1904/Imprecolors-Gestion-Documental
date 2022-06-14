@@ -9,7 +9,11 @@ import RegisterUser from './registerClient/RegisterUser';
 import Provider from './Provider/FormProvider'
 import  Business  from './Provider/FormBusniess';
 import ProductsTable from './Products/ProductsTable';
+import ShoppingTable from './Shopping/ShoppingTable';
 import RegisterProducts from './Products/RegisterProducts';
+import FormTechnicalService from './TechnicalService/FormTechnicalService';
+import FormShopping from './Shopping/FormShopping';
+import FormBill from './Bill/FormBill'
 
 function Routes() {
   const auth = useSelector(isAuth)
@@ -30,6 +34,18 @@ function Routes() {
         <Route path="products" >
           <Route index element={<ProductsTable />} />
           <Route path='createProduct' element={<RegisterProducts />} />
+        </Route>
+        <Route path="shopping" >
+          <Route index element={<ShoppingTable />} />
+          <Route path='shopping' element={<FormShopping />} />
+        </Route>
+        <Route path="technicalService" >
+          <Route index element={<Dashboard />} />
+          <Route path='technicalService' element={<FormTechnicalService />} />
+        </Route>
+        <Route path="createBill" >
+          <Route index element={<Dashboard />} />
+          <Route path='createBill' element={<FormBill />} />
         </Route>
     </Routing>
   )
