@@ -23,8 +23,8 @@ function RegisterUser() {
 ];
 
 const rolUser = [
-  { label: "cliente", value: "Client" },
-  { label: "operario", value: "Operario" },
+  { label: "Vendedor", value: "Client" },
+  { label: "Tècnico de servicio", value: "Operario" },
 ];
 
   const onSubmit = (data) => {
@@ -36,7 +36,7 @@ const rolUser = [
         <h1>Registrar Usuario</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="name"
@@ -45,7 +45,7 @@ const rolUser = [
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="surname"
@@ -63,7 +63,7 @@ const rolUser = [
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="landline"
@@ -72,7 +72,7 @@ const rolUser = [
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="phone"

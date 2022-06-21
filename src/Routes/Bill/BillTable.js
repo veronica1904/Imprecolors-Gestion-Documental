@@ -3,14 +3,14 @@ import Table from '../../components/global/Table'
 import { Visibility } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import moment from 'moment'
-import styles from './product.module.scss'
+import styles from './bill.module.scss'
 
 function ProductsTable() {
   const navigate = useNavigate()
 
   const columnsDataUser = [
     {
-      title: 'Codigo',
+      title: 'Tabla bill',
       field: 'code',
     },
     {

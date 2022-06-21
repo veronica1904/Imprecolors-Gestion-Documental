@@ -5,6 +5,7 @@ import TextFieldForm from "../../components/FormComponents/TextFieldForm";
 import SelectForm from "../../components/FormComponents/SelectForm";
 import CustomCard from "../../components/global/CustomCard";
 import { useDispatch } from "react-redux";
+import styles from './technicalService.module.scss'
 
 
 function  FormTechnicalService () {
@@ -20,7 +21,7 @@ function  FormTechnicalService () {
         dispatch((data));
       };
       return (
-        // <div className={styles.formLogin}>
+       <div className={styles.formTechnicalService}>
         <div>
           <CustomCard>
             <h1>Registrar empresa provedora</h1>
@@ -89,6 +90,7 @@ function  FormTechnicalService () {
               </Grid>
             </form>
           </CustomCard>
+        </div>
         </div>
       );
     }

@@ -1,5 +1,7 @@
 @import "../../styles/colors.scss";
 
+//estilos de formularios
+
 .formProduct{ 
     display: flex;
     justify-content: center;
@@ -14,3 +16,14 @@
     text-align: center;
 }
 
+//estilos de tabla de informaciòn
+
+.productsTables{
+    padding: 70px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1184px;
+    margin: 0 auto;
+
+}
