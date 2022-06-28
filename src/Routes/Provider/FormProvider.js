@@ -32,6 +32,7 @@ function FormProvider() {
                     name="name"
                     label="Nombres"
                     id="name"
+                    inputProps={{ maxLength: 100 }}
                     required
                   />
                 </Grid>
@@ -41,6 +42,7 @@ function FormProvider() {
                     name="surname"
                     label="Apellidos"
                     id="surname"
+                    inputProps={{ maxLength: 100 }}
                     required
                   />
                 </Grid>
@@ -50,6 +52,9 @@ function FormProvider() {
                     name="phone"
                     label="Telefono"
                     id="phone"
+                    onInput = {(e) =>{
+                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+                  }}
                     required
                   />
                 </Grid>
@@ -59,6 +64,7 @@ function FormProvider() {
                     name="email"
                     label="E-mail"
                     id="email"
+                    type="email"
                     required
                   />
                 </Grid>

@@ -36,6 +36,7 @@ function RegisterProducts() {
                 name="code"
                 label="Codigo"
                 id="code"
+                inputProps={{ maxLength: 100 }}
                 required
               />
             </Grid>
@@ -45,6 +46,7 @@ function RegisterProducts() {
                 name="description"
                 label="Descripciòn"
                 id="description"
+                inputProps={{ maxLength: 100 }}
                 required
               />
             </Grid>
@@ -54,6 +56,7 @@ function RegisterProducts() {
                 name="provider"
                 label="Provedor"
                 id="provider"
+                inputProps={{ maxLength: 100 }}  
                 required
               />
             </Grid>
@@ -64,6 +67,9 @@ function RegisterProducts() {
                 label="Precio"
                 id="price"
                 type ="number"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
                 required
               />
             </Grid>
@@ -73,6 +79,9 @@ function RegisterProducts() {
                 name="input quantity"
                 label="Costo de entrada"
                 id="input quantity"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
                 required
               />
             </Grid>
@@ -82,6 +91,9 @@ function RegisterProducts() {
                 name="iva"
                 label="iva"
                 id="iva"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)
+              }}
                 required
               />
             </Grid>

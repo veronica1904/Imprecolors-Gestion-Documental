@@ -41,6 +41,7 @@ function FormBusniess() {
                     name="nameBusniess"
                     label="Nombre de la empresa"
                     id="nameBusniess"
+                    inputProps={{ maxLength: 100 }}  
                     required
                   />
                 </Grid>
@@ -50,6 +51,10 @@ function FormBusniess() {
                     name="phone"
                     label="Telefono"
                     id="phone"
+                    type="number"
+                    onInput = {(e) =>{
+                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+                  }}
                     required
                   />
                 </Grid>
@@ -59,6 +64,7 @@ function FormBusniess() {
                     name="email"
                     label="E-mail"
                     id="email"
+                    inputProps={{ maxLength: 100 }}
                     required
                   />
                 </Grid>
@@ -77,6 +83,7 @@ function FormBusniess() {
                     name="nit"
                     label="N.I.T'"
                     id="nit"
+                    inputProps={{ maxLength: 100 }}
                     required
                   />
                 </Grid>

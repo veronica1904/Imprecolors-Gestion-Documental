@@ -34,6 +34,7 @@ function FormBill() {
                 name="url"
                 label="URL o enlace pagina de la empresa"
                 id="url"
+                inputProps={{ maxLength: 100 }}  
                 required
               />
             </Grid>
@@ -43,6 +44,7 @@ function FormBill() {
                 name="nameBusniess"
                 label="Nombre de la empresa"
                 id="nameBusniess"
+                inputProps={{ maxLength: 100 }}  
                 required
               />
             </Grid>
@@ -52,6 +54,9 @@ function FormBill() {
                 name="phone"
                 label="Telefono"
                 id="phone"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
                 required
               />
             </Grid>
@@ -61,6 +66,7 @@ function FormBill() {
                 name="email"
                 label="E-mail"
                 id="email"
+                inputProps={{ maxLength: 100 }}  
                 required
               />
             </Grid>
