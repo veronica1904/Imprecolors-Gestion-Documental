@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Table from '../../components/global/Table'
 import { Visibility } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import moment from 'moment'
 import styles from './product.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProduct } from '../../Redux/actions/products'
+import { getListProducts } from '../../Redux/selectors/products';
 
 function ProductsTable() {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const productData = useSelector(getListProducts)
+  
+  console.log('productData >>> ', productData)
+  useEffect(() => {
+    dispatch(listProduct())
+  },[])
 
   const columnsDataUser = [
     {
@@ -18,12 +28,8 @@ function ProductsTable() {
       field: 'name',
     },
     {
-      title: 'Provedor de campo',
-      field: 'provider_camp',
-    },
-    {
-      title: 'Provedor de empresa',
-      field: 'provider_business',
+      title: 'Provedor',
+      field: 'provider',
     },
     {
         title: 'Cantidad',
@@ -39,14 +45,14 @@ function ProductsTable() {
     <div className={styles.productsTables}>
         <Table
             columns={columnsDataUser}
-            data={[]}
+            data={productData || []}
             title={'Listado de productos'}
             actions={[
               {
                   icon: Visibility,
                   tooltip: 'Ver detalle',
                   onClick: (event, rowData) => {
-                      navigate(`/details-users/${rowData.id_client}`)
+                      // navigate(`/details-users/${rowData.id_client}`)
                   }
               }
           ]}

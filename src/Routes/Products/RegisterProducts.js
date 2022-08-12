@@ -8,6 +8,7 @@ import CustomCard from "../../components/global/CustomCard";
 import styles from "./product.module.scss"
 import { useDispatch } from "react-redux";
 import CustomImg from "../../components/global/CustomImg";
+import { actionRegitsrProduct } from "../../Redux/actions/products";
 
 
 function RegisterProducts() {
@@ -20,9 +21,15 @@ function RegisterProducts() {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    // dispatch((data));
+     dispatch(actionRegitsrProduct(data));
     console.log(data)
   };
+
+  const listProvider = [ // esto sera traida la data del backend por ahora la quemo
+    { label: "olimpica", value: "62819d3876119fcb6c99bad7" },
+    { label: "Frunas", value: "62819d3876119fcb6c99bad3" },
+    { label: "Dukarte", value: "62819d3876119fcb6c99ba56" },
+];
   return (
      <div className={styles.formProduct}>
     <div>
@@ -43,6 +50,16 @@ function RegisterProducts() {
             <Grid item xs={6} md={12}>
               <TextFieldForm
                 control={control}
+                name="name"
+                label="Nombre del producto"
+                id="name"
+                inputProps={{ maxLength: 100 }}
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={12}>
+              <TextFieldForm
+                control={control}
                 name="description"
                 label="Descripciòn"
                 id="description"
@@ -51,12 +68,14 @@ function RegisterProducts() {
               />
             </Grid>
             <Grid item xs={6} md={12}>
-              <TextFieldForm
+              
+               <SelectForm
+                options={listProvider}
                 control={control}
+                
                 name="provider"
                 label="Provedor"
                 id="provider"
-                inputProps={{ maxLength: 100 }}  
                 required
               />
             </Grid>
@@ -76,9 +95,9 @@ function RegisterProducts() {
             <Grid item xs={12} md={6}>
               <TextFieldForm
                 control={control}
-                name="input quantity"
+                name="quantity"
                 label="Costo de entrada"
-                id="input quantity"
+                id="quantity"
                 onInput = {(e) =>{
                   e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
               }}
@@ -91,9 +110,10 @@ function RegisterProducts() {
                 name="iva"
                 label="iva"
                 id="iva"
-                onInput = {(e) =>{
-                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)
-              }}
+                type ="number"
+              //   onInput = {(e) =>{
+              //     e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)
+              // }}
                 required
               />
             </Grid>
