@@ -1,6 +1,8 @@
 import { 
+    LIST_USERS,
     LOGIN_USER_REQUEST, 
-    LOGOUT_USER
+    LOGOUT_USER,
+    REGISTER_USER
 } from "../constants/user"
 
 export const actionLoginUser = (formData) => {
@@ -12,5 +14,16 @@ export const actionLoginUser = (formData) => {
 export const actionLogout = () => {
     return {
         type: LOGOUT_USER
+    }
+}
+export const registerUser = (data) => {
+    return {
+        type: REGISTER_USER,
+        payload: data
+    }
+}
+export const gertUsers = () => {
+    return {
+        type: LIST_USERS,
     }
 }

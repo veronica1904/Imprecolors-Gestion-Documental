@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Table from '../../components/global/Table'
 import { Visibility } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import moment from 'moment'
+import { useDispatch, useSelector } from 'react-redux';
+import { gertUsers } from '../../Redux/actions/user'
+import { getListUsers } from '../../Redux/selectors/user'
 
 function Dashboard() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const userData = useSelector(getListUsers)
+
+  console.log('userData >>> ', userData)
+  useEffect(() => {
+    dispatch(gertUsers())
+  }, []);
 
   const columnsDataUser = [
     {
       title: 'Número de empleado',
-      field: 'employee_number',
+      field: 'user_number',
     },
     {
       title: 'Nombre',
@@ -34,6 +44,10 @@ function Dashboard() {
         render: rowData => rowData.active ? "activo": "desactivado"
     },
     {
+      title: 'Número doc',
+      field: 'identity'
+    },
+    {
       title: 'fecha de creación',
       field: 'date_create',
        render: rowData => moment(rowData.date_create).format('lll')
@@ -43,14 +57,14 @@ function Dashboard() {
     <div style={{ marginLeft: 50}}>
         <Table
             columns={columnsDataUser}
-            data={[]}
+            data={userData || []}
             title={'Usuarios creados'}
             actions={[
               {
                   icon: Visibility,
                   tooltip: 'Ver detalle',
                   onClick: (event, rowData) => {
-                      navigate(`/details-users/${rowData.id_client}`)
+                      // navigate(`/details-users/${rowData.id_client}`)
                   }
               }
           ]}

@@ -1,5 +1,13 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import {LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_ERROR} from "../constants/user";
+import {LOGIN_USER_REQUEST,
+   LOGIN_USER_SUCCESS,
+    LOGIN_USER_ERROR, 
+    REGISTER_USER_SUCESS, 
+    REGISTER_USER_ERROR,
+    REGISTER_USER,
+    LIST_USERS_SUCESS,
+    LIST_USERS_ERROR,
+    LIST_USERS} from "../constants/user";
 import axios from "axios";
 import Api from "../Api";
 
@@ -32,6 +40,69 @@ function* axiosLogin(action) {
       }
 }
 
+//regitser user 
+
+// action the backend
+function postRegisterUser(action) {
+  console.log('mi data >>> ', action)
+    return axios({
+      method: "POST",
+      url: `${Api}/register/user`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      data: JSON.stringify(action),
+    })
+      .then((response) => response.data)
+      .catch((error) => {
+        throw error.response?.data;
+      });
+  }
+
+
+function* axiosRegisterUser(action) {
+    try {
+        const user = yield call(postRegisterUser, action.payload)
+        yield put({type: REGISTER_USER_SUCESS, user: user})
+      } catch (error) {
+        yield put({ type: REGISTER_USER_ERROR, message: error ? String(error.error) : "Error de conexión" });
+      }
+}
+
+// get loist users 
+
+function listUsers(action) {
+    return axios({
+      method: "GET",
+      url: `${Api}/register/user`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      data: JSON.stringify(action),
+    })
+      .then((response) => response.data)
+      .catch((error) => {
+        throw error.response?.data;
+      });
+  }
+
+
+function* axiosListUsers() {
+    try {
+        const users = yield call(listUsers)
+        yield put({type: LIST_USERS_SUCESS, listUsers: users})
+      } catch (error) {
+        yield put({ type: LIST_USERS_ERROR, message: error ? String(error.error) : "Error de conexión" });
+      }
+}
+
+
 export default function* userSaga() {
     yield takeEvery(LOGIN_USER_REQUEST, axiosLogin);
+    yield takeEvery(REGISTER_USER, axiosRegisterUser);
+    yield takeEvery(LIST_USERS, axiosListUsers);
 }

@@ -5,7 +5,7 @@ import TextFieldForm from "../../components/FormComponents/TextFieldForm";
 import SelectForm from "../../components/FormComponents/SelectForm";
 import styles from "./register.module.scss";
 import CustomCard from "../../components/global/CustomCard";
-import { actionLoginUser } from "../../Redux/actions/user";
+import { registerUser } from "../../Redux/actions/user";
 import { useDispatch } from "react-redux";
 
 function RegisterUser() {
@@ -28,7 +28,8 @@ const rolUser = [
 ];
 
   const onSubmit = (data) => {
-    dispatch(actionLoginUser(data));
+    console.log('data >>> ', data)
+    dispatch(registerUser(data));
   };
   return (
     <div className={styles.formLogin}>
@@ -85,18 +86,18 @@ const rolUser = [
               <SelectForm
                 options={typeDocument}
                 control={control}
-                name="identity"
+                name="identity_type"
                 label="Tipo de Documento"
-                id="identity"
+                id="identity_type"
                 required
               />
             </Grid>
             <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
-                name="documentNumber"
+                name="identity"
                 label="Número de documento"
-                id="documentNumber"
+                id="identity"
                 required
               />
             </Grid>
