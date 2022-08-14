@@ -67,9 +67,9 @@ function RegisterProducts() {
                 label="Precio"
                 id="price"
                 type ="number"
-                onInput = {(e) =>{
-                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
-              }}
+                 onInput = {(e) =>{
+                   e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+               }}
                 required
               />
             </Grid>

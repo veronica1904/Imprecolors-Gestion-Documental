@@ -40,7 +40,7 @@ export default function NavBar() {
           </IconButton>
           <div className={styles.contentLogo}>
             <Typography variant="h6" component={Link} to="/" sx={{ ...(open && { display: 'none' }) }} >
-              ImprimeColors
+                ImpriColors
             </Typography>
           </div>
           {auth && (<AvatarUser isOpenMenuLeft={open} closeMenuLeft={handleChangeMenuLeft} />)}
@@ -50,7 +50,7 @@ export default function NavBar() {
         <DrawerHeader>
           <div className={styles.contentLogoMenu}>
             <Typography variant="h6" sx={{ ...(!open && { display: 'none' }) }} component={Link} to="/" >
-              ImprimeColors
+            
             </Typography>
           </div>
           <IconButton onClick={handleChangeMenuLeft}>
