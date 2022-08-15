@@ -35,7 +35,7 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="nameBusniess"
@@ -50,8 +50,8 @@ function FormBusniess() {
                     control={control}
                     name="nit"
                     label="N.I.T"
-                    id="nif"
-                    type="nit"
+                    id="nit"
+                    type="number"
                     onInput = {(e) =>{
                       e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
                   }}

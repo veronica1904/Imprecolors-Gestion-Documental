@@ -8,7 +8,7 @@ import CustomCard from "../../components/global/CustomCard";
 import { registerUser } from "../../Redux/actions/user";
 import { useDispatch } from "react-redux";
 
-function RegisterUser() {
+function RegisterClient() {
   const {
     handleSubmit,
     control,
@@ -20,11 +20,9 @@ function RegisterUser() {
   const typeDocument = [
     { label: "CC", value: "type_identity" },
     { label: "CE", value: "type_identity" },
-];
-
-const rolUser = [
-  { label: "Vendedor", value: "Client" },
-  { label: "Tècnico de servicio", value: "Operario" },
+    { label: "NIT", value: "type_identity" },
+    { label: "Pasaporte", value: "type_identity" },
+    { label: "PEP", value: "type_identity" },
 ];
 
   const onSubmit = (data) => {
@@ -32,16 +30,29 @@ const rolUser = [
     dispatch(registerUser(data));
   };
   return (
-    <div className={styles.formLogin}>
+    <div className={styles.formClient}>
       <CustomCard>
-        <h1>Registrar Usuario</h1>
+        <h1>Registrar Cliente</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
+          <Grid item xs={12} md={12}>
+              <TextFieldForm
+                control={control}
+                name="codeClient"
+                label="Numero de cliente"
+                id="codeClient"
+                type="number"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
+                required
+              />
+            </Grid>
             <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="name"
-                label="Nombre"
+                label="Nombres"
                 id="name"
                 required
               />
@@ -52,33 +63,6 @@ const rolUser = [
                 name="surname"
                 label="Apellidos"
                 id="surname"
-                required
-              />
-            </Grid>
-            <Grid item xs={6} md={12}>
-              <TextFieldForm
-                control={control}
-                name="address"
-                label="dirección"
-                id="address"
-                required
-              />
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <TextFieldForm
-                control={control}
-                name="landline"
-                label="Telefono fijo"
-                id="landline"
-                required
-              />
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <TextFieldForm
-                control={control}
-                name="phone"
-                label="celular"
-                id="phone"
                 required
               />
             </Grid>
@@ -98,20 +82,65 @@ const rolUser = [
                 name="identity"
                 label="Número de documento"
                 id="identity"
+                type="number"
+                required
+              />
+            </Grid>
+           
+            <Grid item xs={6} md={6}>
+              <TextFieldForm
+                control={control}
+                name="landline"
+                label="Telefono fijo"
+                id="landline"
+                type="number"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
                 required
               />
             </Grid>
             <Grid item xs={6} md={6}>
-            <SelectForm
-                options={rolUser}
+              <TextFieldForm
                 control={control}
-                name="role"
-                label="Rol del usuario"
-                id="role"
+                name="phone"
+                label="celular"
+                id="phone"
+                type="number"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
                 required
               />
             </Grid>
-
+            <Grid item xs={6} md={12}>
+              <TextFieldForm
+                control={control}
+                name="address"
+                label="dirección"
+                id="address"
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={12}>
+              <TextFieldForm
+                control={control}
+                name="attendedBy"
+                label="Atendido por"
+                id="attendedBy"
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={12}>
+              <TextFieldForm
+                control={control}
+                name="observation"
+                label="Observaciones"
+                id="observation"
+                required
+              />
+            </Grid>
+           
             <Grid item xs={12} md={12}>
               <Button variant="contained" type="submit">
                 Ingresar
@@ -123,4 +152,4 @@ const rolUser = [
     </div>
   );
 }
-export default RegisterUser;
+export default RegisterClient;
