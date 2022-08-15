@@ -86,7 +86,7 @@ function  FormTechnicalService () {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="phone"
@@ -96,16 +96,7 @@ function  FormTechnicalService () {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
-                  <TextFieldForm
-                    control={control}
-                    name="address"
-                    label="Nombres y Apellidos"
-                    id="address"
-                    required
-                  />
-                </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="email"

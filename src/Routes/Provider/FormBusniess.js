@@ -45,7 +45,7 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="nit"
@@ -58,43 +58,7 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
-                  <TextFieldForm
-                    control={control}
-                    name="phone"
-                    label="Telefono"
-                    id="phone"
-                    type="number"
-                    onInput = {(e) =>{
-                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
-                  }}
-                    required
-                  />
-                </Grid>
-                <Grid item xs={6} md={12}>
-                  <TextFieldForm
-                    control={control}
-                    name="Fax"
-                    label="Fax"
-                    id="Fax"
-                    type="number"
-                    onInput = {(e) =>{
-                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
-                  }}
-                    required
-                  />
-                </Grid>
-                <Grid item xs={6} md={12}>
-                  <TextFieldForm
-                    control={control}
-                    name="email"
-                    label="E-mail"
-                    id="email"
-                    inputProps={{ maxLength: 100 }}
-                    required
-                  />
-                </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="address"
@@ -104,7 +68,7 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="address"
@@ -124,12 +88,47 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <SelectForm
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
                     control={control}
-                    name="busniess"
-                    label="aqui preguntar porque aqui va formna de pago?????'"
-                    id="busniess"
+                    name="phone"
+                    label="Telefono"
+                    id="phone"
+                    type="number"
+                    onInput = {(e) =>{
+                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+                  }}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
+                    control={control}
+                    name="Fax"
+                    label="Fax"
+                    id="Fax"
+                    type="number"
+                    onInput = {(e) =>{
+                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+                  }}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
+                    control={control}
+                    name="email"
+                    label="E-mail"
+                    id="email"
+                    required
+                  />
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
+                    control={control}
+                    name="observation"
+                    label="Observaciones"
+                    id="observation"
                     required
                   />
                 </Grid>

@@ -30,7 +30,7 @@ function RegisterProducts() {
         <h1>Ingresar producto</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="code"
@@ -40,17 +40,7 @@ function RegisterProducts() {
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
-              <TextFieldForm
-                control={control}
-                name="description"
-                label="Descripciòn"
-                id="description"
-                inputProps={{ maxLength: 100 }}
-                required
-              />
-            </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="provider"
@@ -60,7 +50,39 @@ function RegisterProducts() {
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
+              <TextFieldForm
+                control={control}
+                name="quantity"
+                label="Cantidad"
+                id="quantity"
+                inputProps={{ maxLength: 100 }}
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <TextFieldForm
+                control={control}
+                name="description"
+                label="Descripciòn"
+                id="description"
+                inputProps={{ maxLength: 100 }}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <TextFieldForm
+                control={control}
+                name="input quantity"
+                label="Costo de entrada"
+                id="input quantity"
+                onInput = {(e) =>{
+                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+              }}
+                required
+              />
+            </Grid>
+            <Grid item xs={6} md={4}>
               <TextFieldForm
                 control={control}
                 name="price"
@@ -73,19 +95,8 @@ function RegisterProducts() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
-              <TextFieldForm
-                control={control}
-                name="input quantity"
-                label="Costo de entrada"
-                id="input quantity"
-                onInput = {(e) =>{
-                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
-              }}
-                required
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
+           
+            <Grid item xs={12} md={4}>
               <TextFieldForm
                 control={control}
                 name="iva"

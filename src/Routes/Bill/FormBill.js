@@ -49,21 +49,19 @@ function FormBill() {
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
-              <TextFieldForm
-                control={control}
-                name="nameBusniess"
-                label="Nombre de la empresa"
-                id="nameBusniess"
-                inputProps={{ maxLength: 100 }}  
-                required
-              />
+             <Grid item xs={12} md={12}>
+              <Button variant="contained" type="submit">
+                Nuevo cliente
+              </Button>
+              <Button variant="contained" type="submit">
+                Clientes
+                </Button>
             </Grid>
             <Grid item xs={6} md={12}>
               <TextFieldForm
                 control={control}
                 name="phone"
-                label="Telefono"
+                label="Codigo"
                 id="phone"
                 onInput = {(e) =>{
                   e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
@@ -81,15 +79,7 @@ function FormBill() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
-              <SelectForm
-                control={control}
-                name="busniess"
-                label="aqui preguntar ?????'"
-                id="busniess"
-                required
-              />
-            </Grid>
+        
             <Grid item xs={12} md={6}>
               <SelectForm
                 control={control}

@@ -56,7 +56,7 @@ function FormProvider() {
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="phone"
@@ -69,7 +69,7 @@ function FormProvider() {
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
                 name="email"
