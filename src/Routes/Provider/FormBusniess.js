@@ -29,9 +29,9 @@ function FormBusniess() {
                 <Grid item xs={6} md={12}>
                   <TextFieldForm
                     control={control}
-                    name="url"
+                    name="url_business"
                     label="URL o enlace pagina de la empresa"
-                    id="url"
+                    id="url_business"
                     required
                   />
                 </Grid>
@@ -68,7 +68,7 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                {/* <Grid item xs={12} md={6}>
                   <SelectForm
                     control={control}
                     name="busniess"
@@ -76,7 +76,7 @@ function FormBusniess() {
                     id="busniess"
                     required
                   />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12} md={6}>
                 <TextFieldForm
                     control={control}
