@@ -3,56 +3,56 @@ import Table from '../../components/global/Table';
 import { Visibility } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-import styles from './shopping.module.scss';
+import styles from './register.module.scss';
 
-function UserTable() {
+function ClientTable() {
     const navigate = useNavigate()
 
     const columnsDataUser = [ 
       {
-        title: 'Nº de ingreso de factura',
+        title: 'Nº de cliente',
         field: 'code',
       },
       {
-        title: 'Nº de factura',
+        title: 'Nombres',
         field: 'name',
       },
       {
-        title: 'Fecha de ingreso',
+        title: 'Apellidos',
         field: 'provider_camp',
       },
       {
-        title: 'Provedor',
+        title: 'Tipo de documento',
         field: 'provider_business',
       },
       {
-          title: 'Codigo de fabrica',
+          title: 'Nº de documento',
           field: 'quantity',
       },
       {
-        title: 'Cantidad',
+        title: 'Telefono fijo',
         field: 'quantity',
     },
     {
-        title: 'Precio',
+        title: 'Celular',
         field: 'quantity',
     },
     {
-        title: 'Sub-Total',
+        title: 'Direcciòn',
         field: 'quantity',
     },
     {
-        title: 'Total',
+        title: 'Atendido',
         field: 'quantity',
     },
       {
-        title: 'fecha de creación',
+        title: 'Observaciones',
         field: 'date_create',
          render: rowData => moment(rowData.date_create).format('lll')
     },
   ]
     return (
-      <div className={styles.shoppingTables}>
+      <div className={styles.formClient}>
           <Table
               columns={columnsDataUser}
               data={[]}
@@ -73,4 +73,4 @@ function UserTable() {
   }
   
 
-export default UserTable
+export default ClientTable

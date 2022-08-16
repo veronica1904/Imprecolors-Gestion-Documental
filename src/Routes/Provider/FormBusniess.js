@@ -35,7 +35,7 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="nameBusniess"
@@ -45,7 +45,50 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
+                    control={control}
+                    name="nit"
+                    label="N.I.T"
+                    id="nit"
+                    type="number"
+                    onInput = {(e) =>{
+                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+                  }}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
+                    control={control}
+                    name="address"
+                    label="Pais"
+                    id="email"
+                    inputProps={{ maxLength: 100 }}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
+                    control={control}
+                    name="address"
+                    label="Ciudad"
+                    id="email"
+                    inputProps={{ maxLength: 100 }}
+                    required
+                  />
+                </Grid>
                 <Grid item xs={6} md={12}>
+                  <TextFieldForm
+                    control={control}
+                    name="address"
+                    label="Direcciòn"
+                    id="email"
+                    inputProps={{ maxLength: 100 }}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
                     name="phone"
@@ -58,36 +101,28 @@ function FormBusniess() {
                     required
                   />
                 </Grid>
-                <Grid item xs={6} md={12}>
+                <Grid item xs={6} md={6}>
                   <TextFieldForm
                     control={control}
-                    name="email"
-                    label="E-mail"
-                    id="email"
-                    inputProps={{ maxLength: 100 }}
+                    name="Fax"
+                    label="Fax"
+                    id="Fax"
+                    type="number"
+                    onInput = {(e) =>{
+                      e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
+                  }}
                     required
                   />
                 </Grid>
-                {/* <Grid item xs={12} md={6}>
-                  <SelectForm
+                <Grid item xs={6} md={6}>
+                  <TextFieldForm
                     control={control}
-                    name="busniess"
-                    label="aqui preguntar ?????'"
-                    id="busniess"
-                    required
-                  />
-                </Grid> */}
-                <Grid item xs={12} md={6}>
-                <TextFieldForm
-                    control={control}
-                    name="nit"
-                    label="N.I.T'"
-                    id="nit"
-                    inputProps={{ maxLength: 100 }}
+                    name="observation"
+                    label="Observaciones"
+                    id="observation"
                     required
                   />
                 </Grid>
-    
                 <Grid item xs={12} md={12}>
                   <Button variant="contained" type="submit">
                     Registrar 

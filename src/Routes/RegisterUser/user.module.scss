@@ -1,24 +1,24 @@
 @import "../../styles/colors.scss";
 
-//estilos de formulario
+//estilos de formularios
 
-.formTechnicalService{ 
+.formLogin{ 
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 1184px;
-    padding: 80px 150px;
+    padding: 60px 70px;
     margin: 0 auto;
     gap: 30px;
 }
 
-.textProvider{
+.textLogin{
     text-align: center;
 }
 
 //estilos de tabla de informaciòn
 
-.serviceTables{
+.userTables{
     padding: 70px 200px;
     display: flex;
     justify-content: center;
@@ -27,4 +27,3 @@
     margin: 0 auto;
 
 }
-

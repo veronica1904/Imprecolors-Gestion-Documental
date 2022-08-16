@@ -19,7 +19,7 @@ function App() {
   const token = useSelector(getToken);
   const isOpenMenu = useSelector(getStateMenu);
 
-
+console.log('auth >>> ', auth)
   useEffect(() => {
    
   }, [auth]);

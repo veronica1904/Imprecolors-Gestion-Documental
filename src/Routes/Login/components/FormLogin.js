@@ -6,6 +6,7 @@ import styles from "../formLogin.module.scss";
 import CustomCard from '../../../components/global/CustomCard';
 import { actionLoginUser } from '../../../Redux/actions/user'
 import { useDispatch } from 'react-redux';
+import DatePickerForm from '../../../components/FormComponents/DatePickerForm';
 
 function FormLogin() {
     const { handleSubmit, control, formState: { errors }, reset } = useForm();
@@ -21,7 +22,6 @@ function FormLogin() {
                 <h1>Iniciar sesión</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Grid container spacing={2}>
-                      
                         <Grid item xs={12} md={12}>
                             <TextFieldForm
                                 control={control}
@@ -41,8 +41,8 @@ function FormLogin() {
                                 required
                             />
                         </Grid>
-                       
                         <Grid item xs={12} md={12}>
+                        <p >Olvido su contraseña</p>
                             <Button variant='contained' type='submit'>
                                 Ingresar
                             </Button>

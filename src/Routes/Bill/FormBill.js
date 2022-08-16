@@ -7,6 +7,7 @@ import SelectForm from "../../components/FormComponents/SelectForm";
 import CustomCard from "../../components/global/CustomCard";
 import styles from "./bill.module.scss"
 import { useDispatch } from "react-redux";
+import DatePickerForm from "../../components/FormComponents/DatePickerForm";
 
 
 function FormBill() {
@@ -25,34 +26,42 @@ function FormBill() {
      <div className={styles.formBill}>
     <div>
       <CustomCard>
-        <h1>Soy factura</h1>
+        <h1>Crear factura</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
             <Grid item xs={6} md={12}>
               <TextFieldForm
                 control={control}
-                name="url"
-                label="URL o enlace pagina de la empresa"
-                id="url"
+                name="codeBill"
+                label="Codigo de factura"
+                id="codeBill"
                 inputProps={{ maxLength: 100 }}  
                 required
               />
             </Grid>
-            <Grid item xs={6} md={12}>
-              <TextFieldForm
+            <Grid item xs={6} md={6}>
+              <DatePickerForm
                 control={control}
-                name="nameBusniess"
-                label="Nombre de la empresa"
-                id="nameBusniess"
+                name="date"
+                label="fecha"
+                id="date"
                 inputProps={{ maxLength: 100 }}  
                 required
               />
+            </Grid>
+             <Grid item xs={12} md={12}>
+              <Button variant="contained" type="submit">
+                Nuevo cliente
+              </Button>
+              <Button variant="contained" type="submit">
+                Clientes
+                </Button>
             </Grid>
             <Grid item xs={6} md={12}>
               <TextFieldForm
                 control={control}
                 name="phone"
-                label="Telefono"
+                label="Codigo"
                 id="phone"
                 onInput = {(e) =>{
                   e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
@@ -70,15 +79,7 @@ function FormBill() {
                 required
               />
             </Grid>
-            <Grid item xs={12} md={6}>
-              <SelectForm
-                control={control}
-                name="busniess"
-                label="aqui preguntar ?????'"
-                id="busniess"
-                required
-              />
-            </Grid>
+        
             <Grid item xs={12} md={6}>
               <SelectForm
                 control={control}
@@ -88,7 +89,17 @@ function FormBill() {
                 required
               />
             </Grid>
-
+            <Grid item xs={6} md={12}>
+              <DatePickerForm
+                control={control}
+                name="date"
+                label="fecha"
+                id="date"
+                inputProps={{ maxLength: 100 }}  
+                required
+              />
+            </Grid>
+            
             <Grid item xs={12} md={12}>
               <Button variant="contained" type="submit">
                 Registrar 

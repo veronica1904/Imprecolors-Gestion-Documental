@@ -54,7 +54,7 @@ function Dashboard() {
   },
 ]
   return (
-    <div style={{ marginLeft: 50}}>
+    <div style={{ marginLeft: 50, marginRight: 10}}>
         <Table
             columns={columnsDataUser}
             data={userData || []}
