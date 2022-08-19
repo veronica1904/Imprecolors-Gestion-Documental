@@ -17,7 +17,7 @@ function UserTable() {
        dispatch(gertUsers())
      },[])
 
-console.log('userList >>> ', userList)
+
     const columnsDataUser = [ 
       {
         title: 'Activo',
