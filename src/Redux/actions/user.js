@@ -22,8 +22,10 @@ export const registerUser = (data) => {
         payload: data
     }
 }
-export const gertUsers = () => {
+export const gertUsers = (type) => {
+    console.log('type >>> ', type)
     return {
         type: LIST_USERS,
+        payload: type
     }
 }

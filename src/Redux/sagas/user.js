@@ -13,7 +13,6 @@ import Api from "../Api";
 
 // action the backend
 function postApi(action) {
-  console.log('mi data >>> ', action)
     return axios({
       method: "POST",
       url: `${Api}/login/auth`,
@@ -44,10 +43,11 @@ function* axiosLogin(action) {
 
 // action the backend
 function postRegisterUser(action) {
-  console.log('mi data >>> ', action)
+
+  const route = action.type === "client" ? "/client/client": "/register/user"
     return axios({
       method: "POST",
-      url: `${Api}/register/user`,
+      url: `${Api}${route}`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -74,9 +74,10 @@ function* axiosRegisterUser(action) {
 // get loist users 
 
 function listUsers(action) {
+  const route = action === "client" ? "/client/client": "/register/user"
     return axios({
       method: "GET",
-      url: `${Api}/register/user`,
+      url: `${Api}${route}`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -91,9 +92,9 @@ function listUsers(action) {
   }
 
 
-function* axiosListUsers() {
+function* axiosListUsers(action) {
     try {
-        const users = yield call(listUsers)
+        const users = yield call(listUsers, action.payload)
         yield put({type: LIST_USERS_SUCESS, listUsers: users})
       } catch (error) {
         yield put({ type: LIST_USERS_ERROR, message: error ? String(error.error) : "Error de conexión" });

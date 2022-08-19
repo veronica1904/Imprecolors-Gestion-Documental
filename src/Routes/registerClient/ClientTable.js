@@ -1,12 +1,23 @@
-import React from 'react';
+import React,{useEffect } from 'react';
 import Table from '../../components/global/Table';
 import { Visibility } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import { useDispatch, useSelector} from 'react-redux';
 import styles from './register.module.scss';
+import { gertUsers } from '../../Redux/actions/user';
+import { getListUsers } from '../../Redux/selectors/user';
 
 function ClientTable() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const clientList = useSelector(getListUsers)
+
+    console.log('clientList >>> ', clientList)
+    useEffect(()=>{
+      const type = "client"
+      dispatch(gertUsers(type))
+    },[])
 
     const columnsDataUser = [ 
       {
@@ -19,34 +30,30 @@ function ClientTable() {
       },
       {
         title: 'Apellidos',
-        field: 'provider_camp',
+        field: 'last_name',
       },
       {
         title: 'Tipo de documento',
-        field: 'provider_business',
-      },
-      {
-          title: 'Nº de documento',
-          field: 'quantity',
+        field: 'type_document',
       },
       {
         title: 'Telefono fijo',
-        field: 'quantity',
+        field: 'landline',
     },
     {
         title: 'Celular',
-        field: 'quantity',
+        field: 'phone',
     },
     {
         title: 'Direcciòn',
-        field: 'quantity',
+        field: 'address',
     },
     {
         title: 'Atendido',
-        field: 'quantity',
+        field: 'attendedBy',
     },
       {
-        title: 'Observaciones',
+        title: 'Fecha de creación',
         field: 'date_create',
          render: rowData => moment(rowData.date_create).format('lll')
     },
@@ -55,17 +62,17 @@ function ClientTable() {
       <div className={styles.formClient}>
           <Table
               columns={columnsDataUser}
-              data={[]}
-              title={'Listado de facturas de compras'}
-              actions={[
-                {
-                    icon: Visibility,
-                    tooltip: 'Ver detalle',
-                    onClick: (event, rowData) => {
-                        navigate(`/details-users/${rowData.id_client}`)
-                    }
-                }
-            ]}
+              data={clientList}
+              title={'Listado de clientes'}
+            //   actions={[
+            //     {
+            //         icon: Visibility,
+            //         tooltip: 'Ver detalle',
+            //         onClick: (event, rowData) => {
+            //             navigate(`/details-users/${rowData.id_client}`)
+            //         }
+            //     }
+            // ]}
               
           />
       </div>

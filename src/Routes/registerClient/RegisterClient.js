@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Button, Grid } from "@mui/material";
 import TextFieldForm from "../../components/FormComponents/TextFieldForm";
 import SelectForm from "../../components/FormComponents/SelectForm";
 import styles from "./register.module.scss";
 import CustomCard from "../../components/global/CustomCard";
-import { registerUser } from "../../Redux/actions/user";
-import { useDispatch } from "react-redux";
+import { gertUsers, registerUser } from "../../Redux/actions/user";
+import { useDispatch, useSelector } from "react-redux";
+import { getListUsers } from "../../Redux/selectors/user";
+
 
 function RegisterClient() {
   const {
@@ -17,37 +19,40 @@ function RegisterClient() {
   } = useForm();
   const dispatch = useDispatch();
 
+  const userList = useSelector(getListUsers)
+  const attendby = userList.map(item => {
+    return {
+      label: item.name,
+      value: item._id
+    }
+  })
+
   const typeDocument = [
-    { label: "CC", value: "type_identity" },
-    { label: "CE", value: "type_identity" },
-    { label: "NIT", value: "type_identity" },
-    { label: "Pasaporte", value: "type_identity" },
-    { label: "PEP", value: "type_identity" },
+    { label: "CC", value: "CC" },
+    { label: "CE", value: "CE" },
+    { label: "NIT", value: "NIT" },
+    { label: "Pasaporte", value: "Pasaporte" },
+    { label: "PEP", value: "PEP" },
 ];
 
   const onSubmit = (data) => {
     console.log('data >>> ', data)
-    dispatch(registerUser(data));
+    const addtype = {
+      type: "client",
+      ...data
+    }
+    dispatch(registerUser(addtype));
   };
+
+  useEffect(()=> {
+    dispatch(gertUsers())
+  },[])
   return (
     <div className={styles.formClient}>
       <CustomCard>
         <h1>Registrar Cliente</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
-          <Grid item xs={12} md={12}>
-              <TextFieldForm
-                control={control}
-                name="codeClient"
-                label="Numero de cliente"
-                id="codeClient"
-                type="number"
-                onInput = {(e) =>{
-                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
-              }}
-                required
-              />
-            </Grid>
             <Grid item xs={6} md={6}>
               <TextFieldForm
                 control={control}
@@ -123,7 +128,8 @@ function RegisterClient() {
               />
             </Grid>
             <Grid item xs={6} md={12}>
-              <TextFieldForm
+              <SelectForm
+               options={attendby}
                 control={control}
                 name="attendedBy"
                 label="Atendido por"
