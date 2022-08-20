@@ -49,12 +49,12 @@ function ContentMenu({ open }) {
                 ]
             },
             {
-                text: "Facturas",
+                text: "Recibos",
                 icon: <DescriptionRounded/>,
                 link: "/bill",
                 options: [
                     {
-                        text: "Crear Factura",
+                        text: "Crear Recibo",
                         link: "/createBill"
                     }
                 ]

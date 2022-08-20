@@ -40,7 +40,7 @@ function ProductsTable() {
         <Table
             columns={columnsDataUser}
             data={[]}
-            title={'Listado de productos'}
+            title={'Listado de recibos'}
             actions={[
               {
                   icon: Visibility,

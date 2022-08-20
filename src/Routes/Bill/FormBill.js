@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Grid } from "@mui/material";
+import { Button, Divider, Grid } from "@mui/material";
 import TextFieldForm from "../../components/FormComponents/TextFieldForm";
 import SelectForm from "../../components/FormComponents/SelectForm";
 import CustomCard from "../../components/global/CustomCard";
@@ -12,28 +12,50 @@ import { getListUsers } from "../../Redux/selectors/user";
 import { gertUsers } from "../../Redux/actions/user";
 import CustomModal from "../../components/global/CustomModal";
 import RegisterClient from "../registerClient/RegisterClient";
+import { listProduct } from "../../Redux/actions/products";
+import { getListProducts } from "../../Redux/selectors/products";
+import Addproducts from "./Addproducts";
+import Template from "./Template";
+
+const productDefault = {
+  quantity: "",
+  idProduct: ""
+}
 
 function FormBill() {
-    const [activeClient, setActiveClient] = useState(false)
-    const [activeNewClient, setActiveNewClient] = useState(false)
+  const [activeClient, setActiveClient] = useState(false)
+  const [activeNewClient, setActiveNewClient] = useState(false)
+  const [activeTemplate, setActiveTemplate] = useState(false)
+  const dispatch = useDispatch()
+  const clientList = useSelector(getListUsers)
+  const productData = useSelector(getListProducts)
+  
+  const [products, setProducts] = useState([
+    productDefault
+  ])
+  const productDatalist = productData?.map(item => {
+    return {
+      label: item.name,
+      value: item._id
+    }
+  })
 
-    const dispatch = useDispatch()
-    const clientList = useSelector(getListUsers)
 
-    console.log('clientList >>> ', clientList)
-   
-    useEffect(()=>{
-      const type = "client"
-      dispatch(gertUsers(type))
-    },[])
+  useEffect(() => {
+    const type = "client"
+    dispatch(gertUsers(type))
+    dispatch(listProduct())
+  }, [])
 
 
-    const clients = clientList?.map(item => {
-      return {
-        label: item.name || "sin mombre",
-        value: item._id
-      }
-    })
+  const clients = clientList?.map(item => {
+    return {
+      label: item.name || "sin mombre",
+      value: item._id
+    }
+  })
+
+
   const {
     handleSubmit,
     control,
@@ -41,49 +63,65 @@ function FormBill() {
     reset,
   } = useForm();
 
+  const handleChange = (event, index, type) => {
+    products[index] = {
+      ...products[index],
+      [type]: event.target.value
+    }
+    setProducts(products)
+  };
+  
   const onSubmit = (data) => {
-    dispatch((data));
+    console.log('products >>> ', products)
+    setActiveTemplate(true)
+    // dispatch((data));
   };
 
-  const listClient =() => {
+  const listClient = () => {
     setActiveClient(true)
   }
+  const handleAddProduct = () => {
+    setProducts(prev => [...prev, productDefault ])
+  }
   return (
-     <div className={styles.formBill}>
-   
+    <div className={styles.formBill}>
+
       <CustomCard>
+
+        {!activeTemplate ?
+        <>
         <h1>Crear factura</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
-            <Grid item xs={6} md={6}>
+            <Grid item xs={12} md={6}>
               <DatePickerForm
                 control={control}
                 name="date"
                 label="fecha"
                 id="date"
-                inputProps={{ maxLength: 100 }}  
+                inputProps={{ maxLength: 100 }}
                 required
               />
             </Grid>
-             <Grid item xs={12} md={12}>
+            <Grid item xs={12} md={6}>
               <Button variant="contained" onClick={() => setActiveNewClient(true)}>
                 Nuevo cliente
               </Button>
-              <Button variant="contained"  onClick={listClient}>
+              <Button variant="contained" onClick={listClient}>
                 Clientes
-                </Button>
+              </Button>
             </Grid>
-            {activeClient && 
-               <Grid item xs={6} md={12}>
-               <SelectForm
-                   control={control}
-                   name="client"
-                   label="Lista de clientes'"
-                   id="nit"
-                   options={clients}
-                 />
-                  </Grid>
-              
+            {activeClient &&
+              <Grid item xs={6} md={12}>
+                <SelectForm
+                  control={control}
+                  name="client"
+                  label="Lista de clientes'"
+                  id="nit"
+                  options={clients}
+                />
+              </Grid>
+
             }
             <Grid item xs={6} md={12}>
               <TextFieldForm
@@ -91,9 +129,9 @@ function FormBill() {
                 name="phone"
                 label="Codigo"
                 id="phone"
-                onInput = {(e) =>{
-                  e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
-              }}
+                onInput={(e) => {
+                  e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 15)
+                }}
                 required
               />
             </Grid>
@@ -103,42 +141,50 @@ function FormBill() {
                 name="email"
                 label="E-mail"
                 id="email"
-                inputProps={{ maxLength: 100 }}  
+                inputProps={{ maxLength: 100 }}
                 required
               />
             </Grid>
-         
+
             <Grid item xs={12} md={6}>
-              <SelectForm
-                control={control}
-                name="nit"
-                label="N.I.T'"
-                id="nit"
-                required
-              />
+              <Button variant="contained" onClick={() => handleAddProduct(true)}>
+                Agregar productos
+              </Button>
+
             </Grid>
-            <Grid item xs={6} md={12}>
-              <DatePickerForm
-                control={control}
-                name="date"
-                label="fecha"
-                id="date"
-                inputProps={{ maxLength: 100 }}  
-                required
-              />
+
+              {
+                products.map((item, index) => (
+                  <>
+                  <Grid item xs={6} md={12}>
+                  <Addproducts
+                    index={index}
+                    productDatalist={productDatalist}
+                    // product={productSelect}
+                    // quanity={quanity}
+                    handleChange={handleChange} />
             </Grid>
-            
+            <Divider />
+                  </>
+                ))
+              }
+
+
             <Grid item xs={12} md={12}>
               <Button variant="contained" type="submit">
-                Registrar 
+                Generar factura
               </Button>
             </Grid>
           </Grid>
         </form>
+        </>
+        :
+          <Template />
+        }
       </CustomCard>
       <CustomModal open={activeNewClient} handleClose={() => setActiveNewClient(!activeNewClient)}>
-              <RegisterClient />
-        </CustomModal>
+        <RegisterClient />
+      </CustomModal>
     </div>
   );
 }

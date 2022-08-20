@@ -56,7 +56,7 @@ function ShoppingTable() {
           <Table
               columns={columnsDataUser}
               data={[]}
-              title={'Listado de facturas de compras'}
+              title={'Listado de recibos de compras'}
               actions={[
                 {
                     icon: Visibility,

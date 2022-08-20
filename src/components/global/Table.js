@@ -37,7 +37,8 @@ const Table = (props) => {
         title,
         actions,
         editable,
-        options
+        options,
+        ...otherProps
     } = props;
 
     return (
@@ -62,6 +63,7 @@ const Table = (props) => {
                 },
                 ...options
             }}
+            {...otherProps}
         />
     );
 };
