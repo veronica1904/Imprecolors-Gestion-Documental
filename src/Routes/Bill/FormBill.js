@@ -16,6 +16,7 @@ import { listProduct } from "../../Redux/actions/products";
 import { getListProducts } from "../../Redux/selectors/products";
 import Addproducts from "./Addproducts";
 import Template from "./Template";
+import { actionDataBill } from "../../Redux/actions/bill";
 
 const productDefault = {
   quantity: "",
@@ -72,9 +73,13 @@ function FormBill() {
   };
   
   const onSubmit = (data) => {
-    console.log('products >>> ', products)
+    const dataBill = {
+      ...data,
+      products
+    }
+    console.log('dataBill >>> ', dataBill)
     setActiveTemplate(true)
-    // dispatch((data));
+   dispatch(actionDataBill(dataBill));
   };
 
   const listClient = () => {
@@ -83,6 +88,8 @@ function FormBill() {
   const handleAddProduct = () => {
     setProducts(prev => [...prev, productDefault ])
   }
+
+ 
   return (
     <div className={styles.formBill}>
 
