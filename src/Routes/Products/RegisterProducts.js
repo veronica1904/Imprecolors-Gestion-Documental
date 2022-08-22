@@ -25,7 +25,7 @@ function RegisterProducts() {
     console.log(data)
   };
 
-  const listProvider = [ // esto sera traida la data del backend por ahora la quemo
+  const listProvider = [ // esto sera traido de la data del backend por ahora la quemo
     { label: "olimpica", value: "62819d3876119fcb6c99bad7" },
     { label: "Frunas", value: "62819d3876119fcb6c99bad3" },
     { label: "Dukarte", value: "62819d3876119fcb6c99ba56" },
@@ -86,16 +86,7 @@ function RegisterProducts() {
                 name="quantity"
                 label="Cantidad"
                 id="quantity"
-                inputProps={{ maxLength: 100 }}
-                required
-              />
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <TextFieldForm
-                control={control}
-                name="description"
-                label="Descripciòn"
-                id="description"
+                type= "number"
                 inputProps={{ maxLength: 100 }}
                 required
               />
@@ -105,7 +96,8 @@ function RegisterProducts() {
                 control={control}
                 name="cost_center"
                 label="Costo de entrada"
-                id="quantity"
+                id="cost_center"
+                type= "number"
                 onInput = {(e) =>{
                   e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
               }}
