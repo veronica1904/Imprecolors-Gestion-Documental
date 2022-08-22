@@ -17,8 +17,8 @@ import FormTechnicalService from './TechnicalService/FormTechnicalService';
 import FormShopping from './Shopping/FormShopping';
 import UserTable from './RegisterUser/UserTable';
 import ServiceTable from './TechnicalService/ServiceTable';
-import RegisterClient from './registerClient/RegisterClient';
-import ClientTable from './registerClient/ClientTable';
+import RegisterClient from './RegisterClient/RegisterClient';
+import ClientTable from './RegisterClient/ClientTable';
 
 function Routes() {
   const auth = useSelector(isAuth)
