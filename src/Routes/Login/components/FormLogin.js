@@ -42,7 +42,9 @@ function FormLogin() {
                             />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                        <p >Olvido su contraseña</p>
+                        <a href="https://api.whatsapp.com/send?phone=3106695272&text=!Hola%C2%A1%20Te%20estas%20comunicando%20con%20soporte%20web,%20en%20que%20podemos%20ayudarte?">Olvido su contraseña</a>
+                        </Grid>
+                        <Grid item xs={12} md={12}>
                             <Button variant='contained' type='submit'>
                                 Ingresar
                             </Button>
