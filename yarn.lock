@@ -2349,9 +2349,15 @@
   "version" "17.0.31"
 
 "@types/node@^14.14.31":
+<<<<<<< HEAD
   "integrity" "sha512-aJdn8XErcSrfr7k8ZDDfU6/2OgjZcB2Fu9d+ESK8D7Oa5mtsv8Fa8GpcwTA0v60kuZBaalKPzuzun4Ov1YWO/w=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-14.18.24.tgz"
   "version" "14.18.24"
+=======
+  "integrity" "sha512-0b+utRBSYj8L7XAp0d+DX7lI4cSmowNaaTkk6/1SKzbKkG+doLuPusB9EOvzLJ8ahJSk03bTLIL6cWaEd4dBKA=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-14.18.26.tgz"
+  "version" "14.18.26"
+>>>>>>> 251f3285fc95a26da2eadf665146025ba2a986d9
 
 "@types/normalize-package-data@^2.4.0":
   "integrity" "sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw=="
@@ -8853,6 +8859,11 @@
     "ansi-regex" "^5.0.1"
     "ansi-styles" "^5.0.0"
     "react-is" "^18.0.0"
+
+"print-js@^1.6.0":
+  "integrity" "sha512-BfnOIzSKbqGRtO4o0rnj/K3681BSd2QUrsIZy/+WdCIugjIswjmx3lDEZpXB2ruGf9d4b3YNINri81+J0FsBWg=="
+  "resolved" "https://registry.npmjs.org/print-js/-/print-js-1.6.0.tgz"
+  "version" "1.6.0"
 
 "process-nextick-args@~2.0.0":
   "integrity" "sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag=="
