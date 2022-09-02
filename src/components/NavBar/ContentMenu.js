@@ -27,7 +27,7 @@ function ContentMenu({ open }) {
                 ]
             },
             {
-                text: "Registar Cliente",
+                text: "Registrar Cliente",
                 icon: <PersonSearch/>,
                 link: "/client",
                 options: [
@@ -80,7 +80,7 @@ function ContentMenu({ open }) {
                 link: "/shopping",
                 options: [
                     {
-                        text: "Compras",
+                        text: "Registrar compra",
                         link: "/shopping"
                     }
                 ]
@@ -91,7 +91,7 @@ function ContentMenu({ open }) {
                 link: "/technicalService",
                 options: [
                     {
-                        text: "Servicio tècnico",
+                        text: "Registrar servicio tècnico",
                         link: "/technicalService"
                     }
                 ]

@@ -25,7 +25,9 @@ export default function NavBar() {
     <Box sx={{ display: 'flex' }}>
       <AppBar position="fixed" open={open}>
         <Toolbar>
+          {/* boton de menu de despliegue de dasbhoar */}
           <IconButton
+            id="btn-dashboard"
             color="inherit"
             aria-label="open drawer"
             onClick={handleChangeMenuLeft}
