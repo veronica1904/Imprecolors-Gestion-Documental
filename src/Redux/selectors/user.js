@@ -13,3 +13,7 @@ export const getTypeUser = state   => {
 export const getListUsers = state   => {
     return userState(state).listUsers
 };
+
+export const getDetailUser = state   => {
+    return userState(state).detailUser
+};

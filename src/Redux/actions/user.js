@@ -2,7 +2,8 @@ import {
     LIST_USERS,
     LOGIN_USER_REQUEST, 
     LOGOUT_USER,
-    REGISTER_USER
+    REGISTER_USER,
+    GET_USER,
 } from "../constants/user"
 
 export const actionLoginUser = (formData) => {
@@ -23,9 +24,15 @@ export const registerUser = (data) => {
     }
 }
 export const gertUsers = (type) => {
-    console.log('type >>> ', type)
     return {
         type: LIST_USERS,
         payload: type
+    }
+}
+
+export const getClient = (id) => {
+    return {
+        type: GET_USER,
+        payload: id
     }
 }

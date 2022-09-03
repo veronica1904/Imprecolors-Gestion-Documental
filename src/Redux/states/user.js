@@ -6,5 +6,6 @@ export const initialState = {
     user: {},
     message: "",
     rol: "",
-    listUsers: []
+    listUsers: [],
+    detailUser: {}
 }

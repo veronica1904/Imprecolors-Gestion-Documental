@@ -22,6 +22,7 @@ function UserTable() {
       {
         title: 'Activo',
         field: 'active',
+        render: rowData => rowData.active ? "activo": "desabilitado"
       },
       {
         title: 'Nombres',
@@ -51,7 +52,7 @@ function UserTable() {
                     icon: Visibility,
                     tooltip: 'Ver detalle',
                     onClick: (event, rowData) => {
-                        navigate(`/details-users/${rowData._id}`)
+                        navigate(`/users/details-users/${rowData._id}`)
                     }
                 }
             ]}

@@ -19,6 +19,8 @@ import UserTable from './RegisterUser/UserTable';
 import ServiceTable from './TechnicalService/ServiceTable';
 import RegisterClient from './registerClient/RegisterClient';
 import ClientTable from './registerClient/ClientTable';
+import DetailsUser from './RegisterUser/DetailsUser';
+import DetailProduct from './Products/DetailProduct';
 
 function Routes() {
   const auth = useSelector(isAuth)
@@ -30,6 +32,7 @@ function Routes() {
         <Route path="users" >
           <Route index element={<UserTable />} />
           <Route path='createUser' element={<RegisterUser />} />
+          <Route path="details-users/:id" element={<DetailsUser/>} />
         </Route> 
         <Route path="client" >
           <Route index element={<ClientTable />} />
@@ -43,6 +46,7 @@ function Routes() {
         <Route path="products" >
           <Route index element={<ProductsTable />} />
           <Route path='createProduct' element={<RegisterProducts />} />
+          <Route path='details-product/:id' element={<DetailProduct />} />
         </Route>
         <Route path="shopping" >
           <Route index element={<ShoppingTable />} />

@@ -1,5 +1,7 @@
 import { 
 
+    GET_USER_ERROR,
+    GET_USER_SUCESS,
     LIST_USERS,
     LIST_USERS_ERROR,
     LIST_USERS_SUCESS,
@@ -8,6 +10,7 @@ import {
     LOGIN_USER_SUCCESS,
     LOGOUT_USER,
     REGISTER_USER,
+    GET_USER,
     REGISTER_USER_ERROR,
     REGISTER_USER_SUCESS,
 } from "../constants/user";
@@ -91,7 +94,6 @@ export default function userReducer(state = initialState, action) {
             };
         }
         case LIST_USERS_SUCESS: {
-            console.log('action >>> ', action)
             return {
                 ...state,
                 loading: false,
@@ -108,6 +110,35 @@ export default function userReducer(state = initialState, action) {
                 
             };
         }
+
+        //get user
+        case GET_USER: {
+            return {
+                ...state,
+                loading: true,
+                error: null,
+                message: null
+            };
+        }
+        case GET_USER_SUCESS: {
+            console.log('action >>> ', action)
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                detailUser: action.detailUser
+            };
+        }
+        case GET_USER_ERROR: {
+            return {
+                ...state,
+                loading: false,
+                error: true,
+                message: action.payload,
+                
+            };
+        }
+
 
         default: {
             return state;

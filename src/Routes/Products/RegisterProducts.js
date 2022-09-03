@@ -22,7 +22,7 @@ function RegisterProducts() {
 
   const onSubmit = (data) => {
      dispatch(actionRegitsrProduct(data));
-    console.log(data)
+    console.log('que eres',data)
   };
 
   const listProvider = [ // esto sera traida la data del backend por ahora la quemo

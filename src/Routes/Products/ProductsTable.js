@@ -52,7 +52,8 @@ function ProductsTable() {
                   icon: Visibility,
                   tooltip: 'Ver detalle',
                   onClick: (event, rowData) => {
-                      // navigate(`/details-users/${rowData.id_client}`)
+                    console.log('rowData >>> ', rowData)
+                      navigate(`/products/details-product/${rowData._id}`)
                   }
               }
           ]}
