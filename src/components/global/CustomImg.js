@@ -1,16 +1,14 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
 import {Button} from '@mui/material'
-function CustomImg() {
+function CustomImg({onSubmit}) {
     const {register, handleSubmit} = useForm();
-    const onSubmit = (data) => {
-      console.log(data);
-    };
+   
   return (
     <form >
     <input {...register("picture")} type="file"/>
     <Button onClick={handleSubmit(onSubmit)}>Cargar</Button>
-</form>
+  </form>
   )
 }
 export default CustomImg

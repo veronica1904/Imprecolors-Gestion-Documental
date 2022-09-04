@@ -5,7 +5,7 @@ import { getTypeUser } from '../../Redux/selectors/user';
 import styles from "./navbar.module.scss";
 import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
-import {  DescriptionRounded, Equalizer,  Loyalty, Inventory, ShoppingCart,Person,  PersonSearch, MiscellaneousServices, ProductionQuantityLimits, Public } from '@mui/icons-material';
+import {  DescriptionRounded,  Loyalty, ShoppingCart,Person,  PersonSearch, MiscellaneousServices, ProductionQuantityLimits, Public } from '@mui/icons-material';
 
 function ContentMenu({ open }) {
     const location = useLocation();
@@ -27,7 +27,7 @@ function ContentMenu({ open }) {
                 ]
             },
             {
-                text: "Registar Cliente",
+                text: "Registrar Cliente",
                 icon: <PersonSearch/>,
                 link: "/client",
                 options: [
@@ -80,7 +80,7 @@ function ContentMenu({ open }) {
                 link: "/shopping",
                 options: [
                     {
-                        text: "Compras",
+                        text: "Registrar compra",
                         link: "/shopping"
                     }
                 ]
@@ -91,7 +91,7 @@ function ContentMenu({ open }) {
                 link: "/technicalService",
                 options: [
                     {
-                        text: "Servicio tècnico",
+                        text: "Registrar servicio tècnico",
                         link: "/technicalService"
                     }
                 ]

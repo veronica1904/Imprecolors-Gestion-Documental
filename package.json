@@ -1,4 +1,4 @@
-{
+ {
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -74,12 +74,14 @@
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1"
   },
+
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "cypress:open": "npx cypress open",
     "generate:colors": "json-to-scss ./src/utils/colors.json  ./src/styles/colors.scss --fk"
+
   },
   "eslintConfig": {
     "extends": [

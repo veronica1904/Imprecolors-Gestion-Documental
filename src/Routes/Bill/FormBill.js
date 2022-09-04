@@ -11,12 +11,13 @@ import DatePickerForm from "../../components/FormComponents/DatePickerForm";
 import { getListUsers } from "../../Redux/selectors/user";
 import { gertUsers } from "../../Redux/actions/user";
 import CustomModal from "../../components/global/CustomModal";
-import RegisterClient from "../registerClient/RegisterClient";
+// import RegisterClient from "../RegisterClient/RegisterClient";
 import { listProduct } from "../../Redux/actions/products";
 import { getListProducts } from "../../Redux/selectors/products";
 import Addproducts from "./Addproducts";
 import Template from "./Template";
 import { actionDataBill } from "../../Redux/actions/bill";
+import RegisterClient from '../registerClient/RegisterClient';
 
 const productDefault = {
   quantity: "",

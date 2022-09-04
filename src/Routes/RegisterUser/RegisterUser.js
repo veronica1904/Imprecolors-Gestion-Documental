@@ -34,7 +34,7 @@ const rolUser = [
   return (
     <div className={styles.formLogin}>
       <CustomCard>
-        <h1>Registrar Usuario</h1>
+        <h1 id="testRegister">Registrar Usuario</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
           <Grid item xs={6} md={6}>

@@ -9,9 +9,11 @@ import styles from "./product.module.scss"
 import { useDispatch } from "react-redux";
 import CustomImg from "../../components/global/CustomImg";
 import { actionRegitsrProduct } from "../../Redux/actions/products";
+import { useState } from "react";
 
 
 function RegisterProducts() {
+  const [file, setFile] = useState(null)
   const {
     handleSubmit,
     control,
@@ -21,11 +23,18 @@ function RegisterProducts() {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-     dispatch(actionRegitsrProduct(data));
+    const product = {
+      ...data, 
+      files: file?.picture[0]
+    }
+     dispatch(actionRegitsrProduct(product));
     console.log('que eres',data)
   };
-
-  const listProvider = [ // esto sera traida la data del backend por ahora la quemo
+  const onSubmitFile = (data) => {
+    console.log('data >>> ', data)
+    setFile(data)
+  };
+  const listProvider = [ // esto sera traido de la data del backend por ahora la quemo
     { label: "olimpica", value: "62819d3876119fcb6c99bad7" },
     { label: "Frunas", value: "62819d3876119fcb6c99bad3" },
     { label: "Dukarte", value: "62819d3876119fcb6c99ba56" },
@@ -86,16 +95,7 @@ function RegisterProducts() {
                 name="quantity"
                 label="Cantidad"
                 id="quantity"
-                inputProps={{ maxLength: 100 }}
-                required
-              />
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <TextFieldForm
-                control={control}
-                name="description"
-                label="Descripciòn"
-                id="description"
+                type= "number"
                 inputProps={{ maxLength: 100 }}
                 required
               />
@@ -105,7 +105,8 @@ function RegisterProducts() {
                 control={control}
                 name="cost_center"
                 label="Costo de entrada"
-                id="quantity"
+                id="cost_center"
+                type= "number"
                 onInput = {(e) =>{
                   e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,15)
               }}
@@ -140,7 +141,16 @@ function RegisterProducts() {
               />
             </Grid>
             <Grid item xs={12} md={6}>
-              <CustomImg/>
+              <CustomImg onSubmit={onSubmitFile}/>
+              {/* <TextFieldForm
+                control={control}
+                name="image"
+                label="image"
+                id="image"
+                type ="file"
+                inputProps={{ shrink: true }}
+                required
+              /> */}
             </Grid>
             <Grid item xs={12} md={12}>
               <Button variant="contained" type="submit">

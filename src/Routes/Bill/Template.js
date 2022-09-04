@@ -103,7 +103,7 @@ export default function Template() {
                 <td>
                   Cliente:
                   <br />
-                  {client.name} {client.last_name}
+                  {client?.name} {client?.last_name}
                   <br />
                   {dataBill.email}
                 </td>

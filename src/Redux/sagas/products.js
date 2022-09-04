@@ -12,6 +12,10 @@ import Api from "../Api";
 //register products
 function postRegisterProduct(action) {
   console.log('mi data >>> ', action)
+  const data = new FormData()
+    Object.keys(action).forEach(item => {
+      data.append(item, action[item])
+    })
     return axios({
       method: "POST",
       url: `${Api}/product/product`,
@@ -20,7 +24,7 @@ function postRegisterProduct(action) {
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      data: JSON.stringify(action),
+      data,
     })
       .then((response) => response.data)
       .catch((error) => {

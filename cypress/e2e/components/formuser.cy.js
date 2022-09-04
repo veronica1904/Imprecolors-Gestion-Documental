@@ -4,13 +4,20 @@ describe('user and register', () => {
   }),
  
   it ('user can login', () =>{
+   cy.contains('ImpriColors').click
    cy.get('#users').type('12334')
    cy.get('#password').type('123456789')
    cy.get('#btn-login').click()
    cy.get('#btn-dashboard').click()
-   cy.contains('Recibos').click()
-   cy.contains('Crear Recibo').click()
+   cy.contains('Usuarios').click()
+   cy.contains('Crear Usuario').click()
  
-  })
 
   })
+ 
+
+
+  })
+
+
+   
